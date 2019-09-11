@@ -5,11 +5,11 @@ using UnityEngine;
 public class RumInteraktion : MonoBehaviour
 {
 
-    private Renderer lampa;
+    private SpriteRenderer ljus;
 
     private void Start()
     {
-        lampa = GameObject.FindGameObjectWithTag("Lampa").GetComponent<Renderer>();
+        ljus = GameObject.FindGameObjectWithTag("Ljus").GetComponent<SpriteRenderer>();
     }
 
     public void LampBlinka()
