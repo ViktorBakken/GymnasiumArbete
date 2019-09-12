@@ -13,12 +13,11 @@ public class pelarController : MonoBehaviour
         MH = GameObject.FindGameObjectWithTag("RoomController").GetComponent<MegaHjärna>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Player" && Input.GetKeyDown(KeyCode.Space))
         {
             MH.knappTryck[pelareFärg]++;
         }
     }
-
 }
