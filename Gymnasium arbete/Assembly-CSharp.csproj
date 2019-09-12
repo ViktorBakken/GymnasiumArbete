@@ -60,10 +60,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\RoomController.cs" />
-    <Compile Include="Assets\RumInteraktion.cs" />
     <Compile Include="Assets\Scripts\MegaHjärna.cs" />
     <Compile Include="Assets\Scripts\move.cs" />
+    <Compile Include="Assets\Scripts\pelarController.cs" />
+    <Compile Include="Assets\Scripts\RumInteraktion.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/viktor.bakken/Documents/GitHub/GymnasiumArbete/Gymnasium arbete/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
