@@ -4,20 +4,50 @@ using UnityEngine;
 
 public class pelarController : MonoBehaviour
 {
-    public int pelareFärg; //blå == 0, svart == 1, röd == 2
+    public int pelarFärg; //blå == 0, svart == 1, röd == 2
 
+
+    private float timer;
+    private bool lampaPå = false;
     private MegaHjärna MH;
+    private LampaLjus lampLj;
     // Start is called before the first frame update
     void Start()
     {
-        MH = GameObject.FindGameObjectWithTag("RoomController").GetComponent<MegaHjärna>();
+        MH = GameObject.FindGameObjectWithTag("RoomController").GetComponent<MegaHjärna>(); // Koden skapar en link till MH(Mega Hjärna)
+        lampLj = GameObject.FindGameObjectWithTag("Lampa").GetComponent<LampaLjus>();
     }
 
-    void OnTriggerStay2D(Collider2D collision)
+    void Update()
     {
-        if (collision.tag == "Player" && Input.GetKeyDown(KeyCode.Space))
+        if (pelarFärg == 2 && timer <= Time.time && lampaPå == true)
         {
-            MH.knappTryck[pelareFärg]++;
+            timer = 0;
+
+            lampaPå = false;
+
+            lampLj.StängAv();
         }
+    }
+
+    void OnTriggerStay2D(Collider2D collision)  //Medans spelaren nuddar en pelare.
+    {
+        if (collision.tag == "Player" && Input.GetKeyDown(KeyCode.Space)) // Om det som nuddar pelaren är spelare och om spelaren trycker på space
+        {
+            MH.knappTryck[pelarFärg]++; // När spelaren trycker space på pelaren spelas det in i, beroende på färg av pelare, den respektive int
+
+            if(pelarFärg == 2)
+            {
+                
+                lampLj.SättPå();
+                lampaPå = true;
+            }
+
+        }
+    }
+
+    void OnTriggerExit(Collider collision)
+    {
+        lampLj.StängAv();
     }
 }

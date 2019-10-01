@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class MegaHjärna : MonoBehaviour
 {
-    public float tider;
+
+    
+    public float tider; // En variable som används för att 
     public int[] knappTryck = { 0, 0, 0 };
     public List<string> rumResultat;
     public GameObject rum;
@@ -12,11 +14,11 @@ public class MegaHjärna : MonoBehaviour
 
     private float timer;
 
-    public void SpelaInTid()
+    public void SpelaInTid() //Metod som används för att börja spela in tiden
     {
-        float startTid = Time.time;
+        float startTid = Time.time; //Vi tar reda på tiden när vi börjar spela in
 
-        while (slutaSpelaIn == true)
+        if (slutaSpelaIn == false) // 
         {
             timer = Time.time;
         }
