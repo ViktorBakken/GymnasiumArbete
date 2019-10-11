@@ -39,6 +39,6 @@ public class MegaHjärna : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(knappTryck[0] + "," + knappTryck[1] + "," + knappTryck[2]);
+        //Debug.Log(knappTryck[0] + "," + knappTryck[1] + "," + knappTryck[2]);
     }
 }

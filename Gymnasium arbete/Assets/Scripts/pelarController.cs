@@ -35,14 +35,6 @@ public class pelarController : MonoBehaviour
         if (collision.tag == "Player" && Input.GetKeyDown(KeyCode.Space)) // Om det som nuddar pelaren är spelare och om spelaren trycker på space
         {
             MH.knappTryck[pelarFärg]++; // När spelaren trycker space på pelaren spelas det in i, beroende på färg av pelare, den respektive int
-
-            if(pelarFärg == 2)
-            {
-                
-                lampLj.SättPå();
-                lampaPå = true;
-            }
-
         }
     }
 

@@ -8,7 +8,7 @@ public class LampaLjus : MonoBehaviour
 
     public void SättPå()
     {
-        mat.SetColor("_Color", Color.yellow);
+        mat.SetColor("_Color", Color.yellow);        
     }
 
     public void StängAv()
