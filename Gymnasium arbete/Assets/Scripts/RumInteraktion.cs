@@ -29,6 +29,7 @@ public class RumInteraktion : MonoBehaviour
         secondTimer = blinkTid;
 
         lampa.StängAv();
+
     }
 
     void Update()
@@ -98,7 +99,7 @@ public class RumInteraktion : MonoBehaviour
     {
         lampa.StängAv();
         ljudKäll.Stop();
-
+        ärIRummet = false;
         //Öppna dörr
     }
 
