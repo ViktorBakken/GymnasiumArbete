@@ -5,6 +5,7 @@ using UnityEngine;
 public class pelarController : MonoBehaviour
 {
     public int pelarFärg; //blå == 0, svart == 1, röd == 2
+    public string pelarFärg2;
 
     private MegaHjärna MegaHj;
     private RumInteraktion rumIn;
@@ -22,6 +23,7 @@ public class pelarController : MonoBehaviour
         if (collision.tag == "Player" && Input.GetKeyDown(KeyCode.Space)) // Om det som nuddar pelaren är spelare och om spelaren trycker på space
         {
             MegaHj.knappTryck[pelarFärg]++; // När spelaren trycker space på pelaren spelas det in i, beroende på färg av pelare, den respektive int
+            MegaHj.knappOrdning.Add(pelarFärg2);
             Debug.Log("Nice");
 
             if (rumIn.blinkPå == true && pelarFärg == 0) 

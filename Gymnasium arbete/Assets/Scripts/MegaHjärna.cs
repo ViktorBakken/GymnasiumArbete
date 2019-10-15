@@ -5,6 +5,7 @@ using UnityEngine;
 public class MegaHjärna : MonoBehaviour
 {    
     public int[] knappTryck = { 0, 0, 0 };
+    public List<string> knappOrdning = new List<string>();
     public List<string> rumResultat;
     public RumInteraktion[] rum;
 
@@ -16,12 +17,20 @@ public class MegaHjärna : MonoBehaviour
 
     public void SättIhopRumResultat(string rummID, float tid) //rum nummer, tid, antalet gånger du rör: blåa, svarta, röda 
     {
-        rumResultat.Add("RumID: " + rummID + "\nTid: " + tid + "\nBlå: " + knappTryck[0] + "\nSvart: " + knappTryck[1] + "\nRöd: " + knappTryck[2]);
+       
+        rumResultat.Add("RumID: " + rummID + "\nTid: " + tid + "\nBlå: " + knappTryck[0] + "\nSvart: " + knappTryck[1] + "\nRöd: " + knappTryck[2] + "Knapp Ordning: "); 
+
 
         for (int i = 0; i < knappTryck.Length; i++)
         {
             knappTryck[i] = 0;
+
         } //
+
+        for (int i = 0; i < knappOrdning.Count; i++)
+        {
+            
+        }
     }
 
     private void Update()
