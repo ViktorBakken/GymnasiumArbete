@@ -3,38 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MegaHjärna : MonoBehaviour
-{
-
-    
-    public float tider; // En variable som används för att 
+{    
     public int[] knappTryck = { 0, 0, 0 };
     public List<string> rumResultat;
-    public GameObject rum;
-    public bool slutaSpelaIn = false;
+    public RumInteraktion[] rum;
 
-    private float timer;
-
-    public void SpelaInTid() //Metod som används för att börja spela in tiden
+    void start()
     {
-        float startTid = Time.time; //Vi tar reda på tiden när vi börjar spela in
-
-        if (slutaSpelaIn == false) // 
-        {
-            timer = Time.time;
-        }
-
-        timer -= startTid;
-        tider = timer;
+        rum[0].ärIRummet = true;
+        //SpelaInTid(0);
     }
-    public void SättIhopRumResultat(int rumNum) //rum nummer, tid, antalet gånger du rör: blåa, svarta, röda 
+
+    public void SättIhopRumResultat(string rummID, float tid) //rum nummer, tid, antalet gånger du rör: blåa, svarta, röda 
     {
-        rumResultat.Add("RumNummer: " + rumNum + ", Tid: " + tider + ", Blå: " + knappTryck[0] + ", Svart: " + knappTryck[1] + ", Röd: " + knappTryck[2]);
+        rumResultat.Add("RumID: " + rummID + "\nTid: " + tid + "\nBlå: " + knappTryck[0] + "\nSvart: " + knappTryck[1] + "\nRöd: " + knappTryck[2]);
 
         for (int i = 0; i < knappTryck.Length; i++)
         {
             knappTryck[i] = 0;
-        }
-        tider = 0;
+        } //
     }
 
     private void Update()

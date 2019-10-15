@@ -6,13 +6,13 @@ public class pelarController : MonoBehaviour
 {
     public int pelarFärg; //blå == 0, svart == 1, röd == 2
 
-    private MegaHjärna MH;
+    private MegaHjärna MegaHj;
     private RumInteraktion rumIn;
     private LampaLjus lampa;
     // Start is called before the first frame update
     void Start()
     {
-        MH = GameObject.FindGameObjectWithTag("RoomController").GetComponent<MegaHjärna>(); // Koden skapar en link till MH(Mega Hjärna)
+        MegaHj = GameObject.FindGameObjectWithTag("RummKontroller").GetComponent<MegaHjärna>(); // Koden skapar en link till MH(Mega Hjärna)
         rumIn = GameObject.FindGameObjectWithTag("Rum").GetComponent<RumInteraktion>();
         lampa = GameObject.FindGameObjectWithTag("Lampa").GetComponent<LampaLjus>();
     }
@@ -21,7 +21,7 @@ public class pelarController : MonoBehaviour
     {
         if (collision.tag == "Player" && Input.GetKeyDown(KeyCode.Space)) // Om det som nuddar pelaren är spelare och om spelaren trycker på space
         {
-            MH.knappTryck[pelarFärg]++; // När spelaren trycker space på pelaren spelas det in i, beroende på färg av pelare, den respektive int
+            MegaHj.knappTryck[pelarFärg]++; // När spelaren trycker space på pelaren spelas det in i, beroende på färg av pelare, den respektive int
             Debug.Log("Nice");
 
             if (rumIn.blinkPå == true && pelarFärg == 0) 

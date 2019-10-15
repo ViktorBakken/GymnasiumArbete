@@ -640,7 +640,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535553061}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6, y: -3.55, z: 0}
+  m_LocalPosition: {x: -6, y: -3.55, z: -1}
   m_LocalScale: {x: 0.5, y: 1, z: 1}
   m_Children:
   - {fileID: 1200587340}
@@ -1029,7 +1029,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1131240715}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6, y: -3.55, z: 0}
+  m_LocalPosition: {x: 6, y: -3.55, z: -1}
   m_LocalScale: {x: 0.5, y: 1, z: 1}
   m_Children:
   - {fileID: 1309700087}
@@ -1440,8 +1440,8 @@ GameObject:
   - component: {fileID: 1411074256}
   - component: {fileID: 1411074255}
   m_Layer: 0
-  m_Name: RoomController
-  m_TagString: RoomController
+  m_Name: RummKontroller
+  m_TagString: RummKontroller
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1458,11 +1458,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45e024864dce3db45bf35be72b964b68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tider: 0
   knappTryck: 000000000000000000000000
   rumResultat: []
-  rum: {fileID: 0}
-  slutaSpelaIn: 0
+  rum:
+  - {fileID: 1560802914}
 --- !u!4 &1411074256
 Transform:
   m_ObjectHideFlags: 0
@@ -1629,16 +1628,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d9e31f46c626c40a718fa1e739790c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "VadRummetSkaG\xF6ra": 0000000001000000000000000000000001000000
+  "VadRummetSkaG\xF6ra": 0000000001000000000000000100000000000000
   min: 2
-  max: 10
+  max: 8
   blinkTid: 125
   plats: 0
-  "v\xE4nta": 5
+  "v\xE4ntaLjud": 8
+  rummID: 
   "ljudK\xE4ll": {fileID: 1560802915}
   "blinkP\xE5": 0
   "ljudP\xE5": 0
-  "\xE4rIRummet": 1
+  "\xE4rIRummet": 0
 --- !u!82 &1560802915
 AudioSource:
   m_ObjectHideFlags: 0
