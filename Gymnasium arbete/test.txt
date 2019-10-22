@@ -1,0 +1,6 @@
+RumID: Rum1
+Tid: 16,76455
+Blå: 2
+Svart: 1
+Röd: 1
+Knapp Ordning: Gul, 6,155822,Orange, 7,699199,Blå, 12,31254,Blå, 16,745
