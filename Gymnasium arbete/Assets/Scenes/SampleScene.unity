@@ -660,6 +660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "pelarF\xE4rg": 0
+  "pelarF\xE4rg2": "Bl\xE5"
 --- !u!50 &535553067
 Rigidbody2D:
   serializedVersion: 4
@@ -802,6 +803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "pelarF\xE4rg": 1
+  "pelarF\xE4rg2": Orange
 --- !u!50 &724059418
 Rigidbody2D:
   serializedVersion: 4
@@ -1049,6 +1051,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "pelarF\xE4rg": 2
+  "pelarF\xE4rg2": Gul
 --- !u!50 &1131240721
 Rigidbody2D:
   serializedVersion: 4
@@ -1459,6 +1462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knappTryck: 000000000000000000000000
+  knappOrdning: []
   rumResultat: []
   rum:
   - {fileID: 1560802914}
@@ -1634,11 +1638,11 @@ MonoBehaviour:
   blinkTid: 125
   plats: 0
   "v\xE4ntaLjud": 8
-  rummID: 
+  rummID: Rum1
   "ljudK\xE4ll": {fileID: 1560802915}
   "blinkP\xE5": 0
   "ljudP\xE5": 0
-  "\xE4rIRummet": 0
+  "\xE4rIRummet": 1
 --- !u!82 &1560802915
 AudioSource:
   m_ObjectHideFlags: 0

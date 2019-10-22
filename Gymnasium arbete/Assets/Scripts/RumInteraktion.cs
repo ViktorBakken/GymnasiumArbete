@@ -18,8 +18,10 @@ public class RumInteraktion : MonoBehaviour
     public bool ljudPå = false;
     public bool ärIRummet = false;
 
-    private float tid;
-    private float startTid;
+    public float tid;
+    public float startTid;
+
+
     private float timer;
     private float secondTimer;
     private bool harStartTid = false;
@@ -46,11 +48,10 @@ public class RumInteraktion : MonoBehaviour
             if (harStartTid == false)
             {
                 startTid = Time.time;
+                harStartTid = true;
             }
 
             SpelaInTid();
-
-            Debug.Log(tid);
 
             if (timer <= Time.time)
             {
@@ -75,7 +76,6 @@ public class RumInteraktion : MonoBehaviour
                         Debug.Log("Klar med rum");
                         KlarMedRum();
 
-                        Debug.Log(megaHj.rumResultat[0]);
                     }
                 }
             }
@@ -127,14 +127,16 @@ public class RumInteraktion : MonoBehaviour
 
     void KlarMedRum()
     {
+        blinkPå = false;
         lampa.StängAv();
+
+        ljudPå = false;
         ljudKäll.Stop();
+
 
         ärIRummet = false;
         tid -= startTid;
         megaHj.SättIhopRumResultat(rummID, tid);
-
-        //Öppna dörr
     }
 
     int SlumpaVänta(int min, int max)

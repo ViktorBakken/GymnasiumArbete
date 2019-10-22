@@ -22,8 +22,9 @@ public class pelarController : MonoBehaviour
     {
         if (collision.tag == "Player" && Input.GetKeyDown(KeyCode.Space)) // Om det som nuddar pelaren är spelare och om spelaren trycker på space
         {
+            float tid = rumIn.tid -= rumIn.startTid;
             MegaHj.knappTryck[pelarFärg]++; // När spelaren trycker space på pelaren spelas det in i, beroende på färg av pelare, den respektive int
-            MegaHj.knappOrdning.Add(pelarFärg2);
+            MegaHj.knappOrdning.Add(pelarFärg2 + ", " + tid.ToString());
             Debug.Log("Nice");
 
             if (rumIn.blinkPå == true && pelarFärg == 0) 
