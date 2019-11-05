@@ -15,9 +15,9 @@ public class MegaHjärna : MonoBehaviour
     {
         string sammansatt = string.Join(",", knappOrdning.ToArray()); //Tack micke för den smaskiga koden!!!
 
-        rumResultat.Add("RumID: " + rummID + "\nTid: " + tid + "\nBlå: " + knappTryck[0] + "\nSvart: " + knappTryck[1] + "\nRöd: " + knappTryck[2] + "\nKnapp Ordning: " + sammansatt);
+        rumResultat.Add("RumID: " + rummID + ",  Tid: " + tid + ",  Blå: " + knappTryck[0] + ", Svart: " + knappTryck[1] + ",   Röd: " + knappTryck[2] + ",   Knapp Ordning: " + sammansatt);
 
-        File.WriteAllLines(@"test.txt", rumResultat.ToArray());
+        File.WriteAllLines(@"data.txt", rumResultat.ToArray());
 
         RensaVariabler();
     }

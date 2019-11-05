@@ -24,7 +24,7 @@ public class pelarController : MonoBehaviour
         {
             float tid = rumIn.tid -= rumIn.startTid;
             MegaHj.knappTryck[pelarFärg]++; // När spelaren trycker space på pelaren spelas det in i, beroende på färg av pelare, den respektive int
-            MegaHj.knappOrdning.Add(pelarFärg2 + ", " + tid.ToString());
+            MegaHj.knappOrdning.Add(pelarFärg2 + "; " + tid.ToString() + "  ");
             Debug.Log("Nice");
 
             if (rumIn.blinkPå == true && pelarFärg == 0) 
