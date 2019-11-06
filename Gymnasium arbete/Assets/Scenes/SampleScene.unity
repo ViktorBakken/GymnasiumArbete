@@ -388,7 +388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fart: 5
-  hoppKraft: 250
+  hoppKraft: 350
 --- !u!50 &1957478931
 Rigidbody2D:
   serializedVersion: 4
