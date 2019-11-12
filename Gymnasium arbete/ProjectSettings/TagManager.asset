@@ -11,6 +11,7 @@ TagManager:
   - RummKontroller
   - "V\xE4gg"
   - "V\xE4ggV\xE4nster"
+  - Anim
   layers:
   - Default
   - TransparentFX

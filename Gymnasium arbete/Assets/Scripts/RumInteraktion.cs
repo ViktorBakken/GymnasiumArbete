@@ -31,17 +31,19 @@ public class RumInteraktion : MonoBehaviour
     private LampaLjus lampa;
     private MegaHjärna megaHj;
     private Animator aniVägg;
+    private KontrollerVägg vägg;
 
     private void Start()
     {
         lampa = GameObject.FindGameObjectWithTag("Lampa").GetComponent<LampaLjus>();
         megaHj = GameObject.FindGameObjectWithTag("RummKontroller").GetComponent<MegaHjärna>();
         aniVägg = GameObject.FindGameObjectWithTag("Vägg").GetComponent<Animator>();
+        vägg = GameObject.FindGameObjectWithTag("Anim").GetComponent<KontrollerVägg>();
+
         timer = 5;
         secondTimer = blinkTid;
 
         lampa.StängAv();
-
     }
 
     void Update()

@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 4735974039794987611}
   - component: {fileID: 8631591983178672322}
   - component: {fileID: 4483124582509240057}
+  - component: {fileID: 1336601687}
   m_Layer: 0
   m_Name: "V\xE4gg (v\xE4nster)"
-  m_TagString: "V\xE4gg"
+  m_TagString: "V\xE4ggV\xE4nster"
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 218210775230876493}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -9.5929985, y: -2.955, z: 0}
+  m_LocalPosition: {x: -9.5929985, y: -2.95, z: 0}
   m_LocalScale: {x: 3.9094818, y: 1.1650004, z: 1}
   m_Children: []
   m_Father: {fileID: 2177957634079362870}
@@ -125,6 +126,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1336601687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218210775230876493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28543e84674a3a94fa43898a6d830e7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "animV\xE4gg\xD6ppna": 
+  "animV\xE4ggSt\xE4ng": 
 --- !u!1 &2177957633029605908
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,7 +418,8 @@ Transform:
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -0.02, y: 4.84, z: 0}
   m_LocalScale: {x: 1, y: 0.05000003, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2177957633594803149}
   m_Father: {fileID: 2177957634877634913}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -503,15 +519,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2177957633594803148}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.02, y: 0, z: 4.8400006}
+  m_LocalScale: {x: 1, y: 1, z: 20}
   m_Children:
   - {fileID: 2177957633763781417}
   - {fileID: 2177957633029605912}
   - {fileID: 2177957634510000655}
-  m_Father: {fileID: 2177957634877634913}
-  m_RootOrder: 2
+  m_Father: {fileID: 2177957633589187002}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2177957633763781413
 GameObject:
@@ -1495,7 +1511,6 @@ Transform:
   m_Children:
   - {fileID: 2177957634079362870}
   - {fileID: 2177957633589187002}
-  - {fileID: 2177957633594803149}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1511,7 +1526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d9e31f46c626c40a718fa1e739790c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "VadRummetSkaG\xF6ra": 
+  "VadRummetSkaG\xF6ra": 00000000
   min: 2
   max: 8
   blinkTid: 125
@@ -1522,7 +1537,6 @@ MonoBehaviour:
   "blinkP\xE5": 0
   "ljudP\xE5": 0
   "\xE4rIRummet": 0
-  klarIRummet: 0
   tid: 0
   startTid: 0
 --- !u!82 &2177957634877634915

@@ -17,8 +17,8 @@ public class pelarController : MonoBehaviour
     void Start()
     {
         MegaHj = GameObject.FindGameObjectWithTag("RummKontroller").GetComponent<MegaHjärna>(); // Koden skapar en link till MH(Mega Hjärna)
-        rumIn = GameObject.FindGameObjectWithTag("Rum").GetComponent<RumInteraktion>();
-        lampa = GameObject.FindGameObjectWithTag("Lampa").GetComponent<LampaLjus>();
+        rumIn = GetComponentInParent<RumInteraktion>();
+        lampa = GetComponentInParent<LampaLjus>();
         anim = GetComponentInChildren<Animator>();
     }
 
