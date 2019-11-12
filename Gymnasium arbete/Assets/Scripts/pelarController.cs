@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class pelarController : MonoBehaviour
 {
@@ -10,12 +11,15 @@ public class pelarController : MonoBehaviour
     private MegaHjärna MegaHj;
     private RumInteraktion rumIn;
     private LampaLjus lampa;
+    private Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
         MegaHj = GameObject.FindGameObjectWithTag("RummKontroller").GetComponent<MegaHjärna>(); // Koden skapar en link till MH(Mega Hjärna)
         rumIn = GameObject.FindGameObjectWithTag("Rum").GetComponent<RumInteraktion>();
         lampa = GameObject.FindGameObjectWithTag("Lampa").GetComponent<LampaLjus>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     void OnTriggerStay2D(Collider2D collision)  //Medans spelaren nuddar en pelare.
@@ -25,9 +29,12 @@ public class pelarController : MonoBehaviour
             float tid = rumIn.tid -= rumIn.startTid;
             MegaHj.knappTryck[pelarFärg]++; // När spelaren trycker space på pelaren spelas det in i, beroende på färg av pelare, den respektive int
             MegaHj.knappOrdning.Add(pelarFärg2 + "; " + tid.ToString() + "  ");
+
+            anim.SetBool(MegaHj.aniKnapp, true);
+
             Debug.Log("Nice");
 
-            if (rumIn.blinkPå == true && pelarFärg == 0) 
+            if (rumIn.blinkPå == true && pelarFärg == 0)
             {
                 rumIn.VadRummetSkaGöra[rumIn.plats] = 2;
                 lampa.StängAv();
@@ -42,6 +49,14 @@ public class pelarController : MonoBehaviour
 
 
             }
+        }
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            anim.SetBool(MegaHj.aniKnapp, false);
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
+
 
 public class RumInteraktion : MonoBehaviour
 {
@@ -28,6 +30,7 @@ public class RumInteraktion : MonoBehaviour
 
     private LampaLjus lampa;
     private MegaHjärna megaHj;
+    private Animator aniVägg;
 
     private void Start()
     {

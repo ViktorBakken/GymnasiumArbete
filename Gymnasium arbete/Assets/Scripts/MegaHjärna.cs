@@ -10,6 +10,7 @@ public class MegaHjärna : MonoBehaviour
     public List<string> knappOrdning = new List<string>();
     public List<string> rumResultat = new List<string>();
     public RumInteraktion[] rum;
+    public string aniKnapp;
 
     public void SättIhopRumResultat(string rummID, float tid) //rum nummer, tid, antalet gånger du rör: blåa, svarta, röda 
     {

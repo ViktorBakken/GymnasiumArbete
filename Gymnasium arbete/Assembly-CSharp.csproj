@@ -60,7 +60,7 @@
      <Compile Include="Assets\Scripts\move.cs" />
      <Compile Include="Assets\Scripts\pelarController.cs" />
      <Compile Include="Assets\Scripts\RumInteraktion.cs" />
-     <None Include="Assets\Scripts\data.txt.txt" />
+     <None Include="Assets\data.txt.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/elev/Documents/GitHub/GymnasiumArbete/Gymnasium arbete/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
