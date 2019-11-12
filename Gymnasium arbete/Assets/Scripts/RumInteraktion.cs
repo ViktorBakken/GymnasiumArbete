@@ -36,7 +36,7 @@ public class RumInteraktion : MonoBehaviour
     {
         lampa = GameObject.FindGameObjectWithTag("Lampa").GetComponent<LampaLjus>();
         megaHj = GameObject.FindGameObjectWithTag("RummKontroller").GetComponent<MegaHjärna>();
-
+        aniVägg = GameObject.FindGameObjectWithTag("Vägg").GetComponent<Animator>();
         timer = 5;
         secondTimer = blinkTid;
 
@@ -76,9 +76,7 @@ public class RumInteraktion : MonoBehaviour
                     }
                     else if (VadRummetSkaGöra[VadRummetSkaGöra.Length - 1] == 2)
                     {
-                        Debug.Log("Klar med rum");
                         KlarMedRum();
-
                     }
                 }
             }
@@ -140,6 +138,9 @@ public class RumInteraktion : MonoBehaviour
         ärIRummet = false;
         tid -= startTid;
         megaHj.SättIhopRumResultat(rummID, tid);
+
+        aniVägg.SetBool(megaHj.aniVägg, true);
+
     }
 
     int SlumpaVänta(int min, int max)

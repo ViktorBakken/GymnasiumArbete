@@ -9,6 +9,8 @@ TagManager:
   - RoomController
   - Ljus
   - RummKontroller
+  - "V\xE4gg"
+  - "V\xE4ggV\xE4nster"
   layers:
   - Default
   - TransparentFX

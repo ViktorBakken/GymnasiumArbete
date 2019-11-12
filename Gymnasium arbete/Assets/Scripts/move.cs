@@ -46,6 +46,6 @@ public class move : MonoBehaviour
             nuddarMarken = false;
         }
 
-        Debug.Log(nuddarMarken);
+
     }
 }

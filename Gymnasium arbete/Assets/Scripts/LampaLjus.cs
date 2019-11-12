@@ -10,7 +10,6 @@ public class LampaLjus : MonoBehaviour
     public void SättPå()
     {
         mat.color = Color.yellow;
-
     }
 
     public void StängAv()
