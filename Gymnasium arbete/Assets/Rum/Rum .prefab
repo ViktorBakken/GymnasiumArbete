@@ -138,8 +138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28543e84674a3a94fa43898a6d830e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "animV\xE4gg\xD6ppna": 
-  "animV\xE4ggSt\xE4ng": 
+  "animV\xE4gg\xD6ppna": "\xD6ppnaD\xF6rr"
+  "animV\xE4ggSt\xE4ng": "St\xE4ngD\xF6rr"
 --- !u!1 &2177957633029605908
 GameObject:
   m_ObjectHideFlags: 0

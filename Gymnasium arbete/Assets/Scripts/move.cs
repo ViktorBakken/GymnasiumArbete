@@ -19,8 +19,7 @@ public class move : MonoBehaviour
 
     void Update()
     {
-        Debug.DrawRay(rayPosition,Vector2.down);
-        rayPosition = new Vector2(transform.position.x, transform.position.y - 1);
+        rayPosition = new Vector2(transform.position.x, transform.position.y - 0.6f);
 
         NuddarMarken();
 
@@ -48,4 +47,6 @@ public class move : MonoBehaviour
 
 
     }
+
+    
 }
