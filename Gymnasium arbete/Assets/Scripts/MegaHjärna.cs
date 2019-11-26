@@ -14,6 +14,8 @@ public class MegaHjärna : MonoBehaviour
     public string aniKnapp;
     public string aniVägg;
 
+    private Vector3 newPosition;
+
     void Start()
     {
         rum[0].GetComponent<RumInteraktion>().ärIRummet = true;
@@ -49,8 +51,15 @@ public class MegaHjärna : MonoBehaviour
         kamera.GetComponent<Kamera>().FöljKaraktär();
     }
 
-    public void KameraSlutaFöljaKaraktär(Vector3 newPosition)
+    public void KameraSlutaFöljaKaraktär()
     {
+        for (int i = 0; i < rum.Length; i++)
+        {
+            if (rum[i].GetComponent<RumInteraktion>().ärIRummet == true)
+            {
+                newPosition = rum[i].transform.position + new Vector3(0, 0, -15);
+            }
+        }
         kamera.GetComponent<Kamera>().SlutaFöljKaraktär(newPosition);
     }
 }

@@ -25,7 +25,6 @@ public class RumInteraktion : MonoBehaviour
     public float tid;
     public float startTid;
 
-
     private float timer;
     private float secondTimer;
     private bool harStartTid = false;

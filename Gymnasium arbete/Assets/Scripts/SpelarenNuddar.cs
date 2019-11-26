@@ -9,6 +9,7 @@ public class SpelarenNuddar : MonoBehaviour
         if (collision.tag == "Player")
         {
             GetComponentInParent<RumInteraktion>().ärIRummet = true;
+            GameObject.FindGameObjectWithTag("RummKontroller").GetComponent<MegaHjärna>().KameraSlutaFöljaKaraktär();
             Destroy(this.gameObject);
         }
     }
