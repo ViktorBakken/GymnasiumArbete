@@ -14,6 +14,7 @@ public class RumInteraktion : MonoBehaviour
     public int väntaLjud; //Tid som låter ljudet spela klart
     public string rummID; //Ett id för rummet, används för att anteckna
     public int rumNummer;
+    public Object spelareIRum;
 
     public AudioSource ljudKäll;
 
@@ -45,45 +46,57 @@ public class RumInteraktion : MonoBehaviour
         secondTimer = blinkTid;
 
         lampa.StängAv();
+        vägg.StängIngångsDörr();
     }
 
     void Update()
     {
+        if(ärIRummet == false)
+        {
+            ÄrSpelarenIRum();
+        }
         if (ärIRummet == true)
         {
             if (harStartTid == false)
             {
                 startTid = Time.time;
                 harStartTid = true;
+                vägg.StängIngångsDörr();
             }
 
             SpelaInTid();
 
-            if (timer <= Time.time)
+            ÄrIRummet();
+        }
+    }
+
+    void ÄrIRummet()
+    {
+        if (timer <= Time.time)
+        {
+            for (int i = 0; i < VadRummetSkaGöra.Length; i++)
             {
-                for (int i = 0; i < VadRummetSkaGöra.Length; i++)
+                if (VadRummetSkaGöra[i] != 2)
                 {
-                    if (VadRummetSkaGöra[i] != 2)
+                    plats = i;
+                    if (VadRummetSkaGöra[i] == 0)
                     {
-                        plats = i;
-                        if (VadRummetSkaGöra[i] == 0)
-                        {
-                            Blinka();
-                            break;
-                        }
-                        else if (VadRummetSkaGöra[i] == 1)
-                        {
-                            SpelaLjud();
-                            break;
-                        }
+                        Blinka();
+                        break;
                     }
-                    else if (VadRummetSkaGöra[VadRummetSkaGöra.Length - 1] == 2)
+                    else if (VadRummetSkaGöra[i] == 1)
                     {
-                        KlarMedRum();
+                        SpelaLjud();
+                        break;
                     }
+                }
+                else if (VadRummetSkaGöra[VadRummetSkaGöra.Length - 1] == 2)
+                {
+                    KlarMedRum();
                 }
             }
         }
+
     }
 
     void SpelaInTid()
@@ -151,5 +164,10 @@ public class RumInteraktion : MonoBehaviour
     {
         int vänta = Random.Range(min, max);
         return vänta;
+    }
+
+    void ÄrSpelarenIRum()
+    {
+
     }
 }

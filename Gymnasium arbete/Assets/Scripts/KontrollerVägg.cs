@@ -6,6 +6,7 @@ using UnityEngine.Animations;
 public class KontrollerVägg : MonoBehaviour
 {
     public string animVäggÖppna;
+    public string animväggStäng;
 
     private Animator animVänster;
 
@@ -16,11 +17,11 @@ public class KontrollerVägg : MonoBehaviour
 
     public void ÖppnaIngångsDörr()
     {
-        animVänster.SetBool(animVäggÖppna, true);
+        animVänster.Play(animVäggÖppna);
     }
 
     public void StängIngångsDörr()
     {
-        animVänster.SetBool(animVäggÖppna, false);
+        animVänster.Play(animväggStäng);
     }
 }
