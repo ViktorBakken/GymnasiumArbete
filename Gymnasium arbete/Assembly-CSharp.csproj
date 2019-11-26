@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Kamera.cs" />
     <Compile Include="Assets\Scripts\KontrollerVägg.cs" />
     <Compile Include="Assets\Scripts\LampaLjus.cs" />
     <Compile Include="Assets\Scripts\MegaHjärna.cs" />

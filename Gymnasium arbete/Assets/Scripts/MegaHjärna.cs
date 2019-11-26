@@ -10,13 +10,15 @@ public class MegaHjärna : MonoBehaviour
     public List<string> knappOrdning = new List<string>();
     public List<string> rumResultat = new List<string>();
     public GameObject[] rum;
+    public GameObject kamera;
     public string aniKnapp;
     public string aniVägg;
 
-    public void Start()
+    void Start()
     {
         rum[0].GetComponent<RumInteraktion>().ärIRummet = true;
     }
+
     public void SättIhopRumResultat(string rummID, float tid) //rum nummer, tid, antalet gånger du rör: blåa, svarta, röda 
     {
         string sammansatt = string.Join(",", knappOrdning.ToArray()); //Tack micke för den smaskiga koden!!!
@@ -40,5 +42,15 @@ public class MegaHjärna : MonoBehaviour
         {
             knappOrdning.RemoveAt(0);
         }
+    }
+
+    public void KameraFöljKaraktär()
+    {
+        kamera.GetComponent<Kamera>().FöljKaraktär();
+    }
+
+    public void KameraSlutaFöljaKaraktär(Vector3 newPosition)
+    {
+        kamera.GetComponent<Kamera>().SlutaFöljKaraktär(newPosition);
     }
 }

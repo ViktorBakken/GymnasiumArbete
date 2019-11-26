@@ -1,0 +1,1 @@
+RumID: Rum1,  Tid: 5,462444,  Blå: 1, Svart: 0,   Röd: 0,   Knapp Ordning: Blå; 5,445359  

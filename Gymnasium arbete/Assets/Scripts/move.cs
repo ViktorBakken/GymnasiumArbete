@@ -19,9 +19,11 @@ public class move : MonoBehaviour
 
     void Update()
     {
-        rayPosition = new Vector2(transform.position.x, transform.position.y - 0.6f);
+        rayPosition = new Vector2(transform.position.x, transform.position.y - 0.8f);
 
         NuddarMarken();
+
+        //Debug.DrawRay(rayPosition, Vector2.down, Color.white, 0.1f);
 
         transform.Translate(Vector2.right * Input.GetAxisRaw("Horizontal") * fart * Time.deltaTime);
 
@@ -45,8 +47,7 @@ public class move : MonoBehaviour
             nuddarMarken = false;
         }
 
+        Debug.Log(nuddarMarken);
 
     }
-
-    
 }

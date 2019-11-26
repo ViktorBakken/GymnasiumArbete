@@ -13,6 +13,7 @@ public class RumInteraktion : MonoBehaviour
     public int plats; //platsen i VadRummetSkaGöra
     public int väntaLjud; //Tid som låter ljudet spela klart
     public string rummID; //Ett id för rummet, används för att anteckna
+    public int rumNummer;
 
     public AudioSource ljudKäll;
 
@@ -35,7 +36,7 @@ public class RumInteraktion : MonoBehaviour
 
     private void Start()
     {
-        lampa = GameObject.FindGameObjectWithTag("Lampa").GetComponent<LampaLjus>();
+        lampa = GetComponentInChildren<LampaLjus>();
         megaHj = GameObject.FindGameObjectWithTag("RummKontroller").GetComponent<MegaHjärna>();
         aniVägg = GameObject.FindGameObjectWithTag("Vägg").GetComponent<Animator>();
         vägg = GameObject.FindGameObjectWithTag("Anim").GetComponent<KontrollerVägg>();
@@ -141,8 +142,9 @@ public class RumInteraktion : MonoBehaviour
         tid -= startTid;
         megaHj.SättIhopRumResultat(rummID, tid);
 
-        aniVägg.SetBool(megaHj.aniVägg, true);
-
+        aniVägg.Play("VäggAnimation");
+        megaHj.KameraFöljKaraktär();
+        megaHj.rum[rumNummer].GetComponentInChildren<KontrollerVägg>().ÖppnaIngångsDörr();
     }
 
     int SlumpaVänta(int min, int max)
