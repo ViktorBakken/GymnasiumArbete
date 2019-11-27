@@ -12,7 +12,8 @@ public class RumInteraktion : MonoBehaviour
     public int blinkTid; //tiden lampan är på
     public int plats; //platsen i VadRummetSkaGöra
     public int väntaLjud; //Tid som låter ljudet spela klart
-    public string rummID; //Ett id för rummet, används för att anteckna
+    public int tidMellanLjud; //Tiden mellan ljudet;
+    public string rummID; //Ett id för rummet, används när tiderna antecknas
     public int rumNummer;
     public Object spelareIRum;
 
@@ -54,7 +55,7 @@ public class RumInteraktion : MonoBehaviour
         {
             ÄrSpelarenIRum();
         }
-        if (ärIRummet == true)
+        else
         {
             if (harStartTid == false)
             {
@@ -130,7 +131,7 @@ public class RumInteraktion : MonoBehaviour
         if (secondTimer <= Time.time)
         {
             Debug.Log("Ljud på");
-            timer = SlumpaVänta(min + 10, max + 10) + Time.time;
+            timer = SlumpaVänta(min + tidMellanLjud, max + tidMellanLjud) + Time.time;
             ljudPå = true;
             secondTimer = väntaLjud;
             ljudKäll.Play();

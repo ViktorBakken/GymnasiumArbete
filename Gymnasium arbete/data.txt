@@ -1,1 +1,2 @@
-
+RumID: Rum1,  Tid: 33.04944,  Blå: 1, Svart: 0,   Röd: 1,   Knapp Ordning: Blå; 5.298436  ,Gul; 23.61441  
+RumID: Rum1,  Tid: 33.04944,  Blå: 0, Svart: 0,   Röd: 0,   Knapp Ordning: Gul; 23.61441  

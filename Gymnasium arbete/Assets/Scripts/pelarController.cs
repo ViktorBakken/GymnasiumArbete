@@ -36,20 +36,28 @@ public class pelarController : MonoBehaviour
 
             if (rumIn.blinkPå == true && pelarFärg == 0)
             {
-                rumIn.VadRummetSkaGöra[rumIn.plats] = 2;
-                lampa.StängAv();
-                Debug.Log("Fungerar!");
+                SlutaBlinka();
             }
 
             if (rumIn.ljudPå == true && pelarFärg == 2)
             {
-                rumIn.VadRummetSkaGöra[rumIn.plats] = 2;
-                rumIn.ljudKäll.Stop();
-                Debug.Log("Tyst!!!!!!");
-
-
+                SlutaSpelaLjud();
             }
         }
+    }
+
+    void SlutaBlinka()
+    {
+        rumIn.VadRummetSkaGöra[rumIn.plats] = 2;
+        lampa.StängAv();
+        Debug.Log("Fungerar!");
+    }
+    void SlutaSpelaLjud()
+    {
+        rumIn.VadRummetSkaGöra[rumIn.plats] = 2;
+        rumIn.ljudKäll.Stop();
+        rumIn.ljudPå = false;
+        Debug.Log("Tyst!!!!!!");
     }
 
     void Update()
