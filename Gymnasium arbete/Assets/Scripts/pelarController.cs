@@ -50,6 +50,7 @@ public class pelarController : MonoBehaviour
     {
         rumIn.VadRummetSkaGöra[rumIn.plats] = 2;
         lampa.StängAv();
+        rumIn.blinkPå = false;
         Debug.Log("Fungerar!");
     }
     void SlutaSpelaLjud()

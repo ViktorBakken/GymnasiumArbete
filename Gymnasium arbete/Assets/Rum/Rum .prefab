@@ -29,7 +29,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 953002851744109981}
-  - {fileID: 2177957634707122303}
   m_Father: {fileID: 2177957634877634913}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -45,8 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28543e84674a3a94fa43898a6d830e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "animV\xE4gg\xD6ppna": "V\xE4ggV\xE4nsterUpp"
-  "animv\xE4ggSt\xE4ng": "V\xE4ggNer"
+  "animV\xE4nstraD\xF6rr\xD6ppna": "V\xE4ggV\xE4nsterUpp"
+  "animV\xE4nstraD\xF6rrSt\xE4ng": "V\xE4ggNer"
+  "animH\xF6graD\xF6rr\xD6ppna": "V\xE4ggAnimation"
+  "v\xE4ggar": {fileID: 2177957634079362869}
+  "animV\xE4nster": {fileID: 0}
+  "animH\xF6ger": {fileID: 0}
 --- !u!1 &244784376
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,6 +1260,7 @@ Transform:
   - {fileID: 344483603}
   - {fileID: 2072022575}
   - {fileID: 244784377}
+  - {fileID: 2177957634707122303}
   m_Father: {fileID: 2177957634877634913}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1733,10 +1737,10 @@ Transform:
   m_GameObject: {fileID: 2177957634707122302}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 10.084999, y: -2.915, z: 13.171875}
-  m_LocalScale: {x: 3.9094813, y: 1.1650009, z: 1}
+  m_LocalScale: {x: 3.9094832, y: 1.1650014, z: 1}
   m_Children: []
-  m_Father: {fileID: 58031218}
-  m_RootOrder: 1
+  m_Father: {fileID: 2177957634079362870}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!33 &2177957634707122306
 MeshFilter:
@@ -1981,6 +1985,7 @@ MonoBehaviour:
   blinkTid: 125
   plats: 0
   "v\xE4ntaLjud": 6
+  tidMellanLjud: 0
   rummID: Rum2
   rumNummer: 2
   spelareIRum: {fileID: 244784376}
