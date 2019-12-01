@@ -9,7 +9,6 @@ public class KontrollerVägg : MonoBehaviour
     public string animVänstraDörrStäng;
     public string animHögraDörrÖppna;
 
-
     public GameObject väggar;
     public Animator animVänster;
     public Animator animHöger;
@@ -18,23 +17,25 @@ public class KontrollerVägg : MonoBehaviour
     {
         animVänster = GetComponentInChildren<Animator>();
         animHöger = väggar.GetComponentInChildren<Animator>();
-        //animVänster = FindComponentInChildWithTag<Animator>(gameObject, "VäggVänster");
-
     }
 
-    public void ÖppnaIngångsDörr()
+
+    public void Öppna(bool vänsterDörr)
     {
+        if (vänsterDörr == true)
+        {
         animVänster.Play(animVänstraDörrÖppna);
+
+        }
+        else
+        {
+            animHöger.Play(animHögraDörrÖppna);
+        }
     }
 
-    public void StängIngångsDörr()
+    public void Stäng()
     {
         animVänster.Play(animVänstraDörrStäng);
-    }
-
-    public void ÖppnaUtgången()
-    {
-        animHöger.Play(animHögraDörrÖppna);
     }
 
     //public static T FindComponentInChildWithTag<T>(this GameObject parent, string tag) where T : Component

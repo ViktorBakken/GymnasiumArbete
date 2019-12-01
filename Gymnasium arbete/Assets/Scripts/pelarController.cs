@@ -32,8 +32,6 @@ public class pelarController : MonoBehaviour
 
             anim.SetBool(MegaHj.aniKnapp, true);
 
-            Debug.Log("Nice");
-
             if (rumIn.blinkPå == true && pelarFärg == 0)
             {
                 SlutaBlinka();
@@ -51,7 +49,6 @@ public class pelarController : MonoBehaviour
         rumIn.VadRummetSkaGöra[rumIn.plats] = 2;
         lampa.StängAv();
         rumIn.blinkPå = false;
-        Debug.Log("Fungerar!");
     }
     void SlutaSpelaLjud()
     {

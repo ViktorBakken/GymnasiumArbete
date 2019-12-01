@@ -33,15 +33,13 @@ public class RumInteraktion : MonoBehaviour
 
     private LampaLjus lampa;
     private MegaHjärna megaHj;
-    private Animator aniVägg;
-    private KontrollerVägg vägg;
+    public KontrollerVägg väggKontroll;
 
     private void Start()
     {
         lampa = GetComponentInChildren<LampaLjus>();
         megaHj = GameObject.FindGameObjectWithTag("RummKontroller").GetComponent<MegaHjärna>();
-        aniVägg = GameObject.FindGameObjectWithTag("Vägg").GetComponent<Animator>();
-        vägg = GameObject.FindGameObjectWithTag("Anim").GetComponent<KontrollerVägg>();
+        väggKontroll = GetComponentInChildren<KontrollerVägg>();
 
         timer = 5;
         AndraTimer = blinkTid;
@@ -51,17 +49,13 @@ public class RumInteraktion : MonoBehaviour
 
     void Update()
     {
-        if (ärIRummet == false)
-        {
-            ÄrSpelarenIRum();
-        }
-        else
+        if (ärIRummet == true)
         {
             if (harStartTid == false)
             {
                 startTid = Time.time;
                 harStartTid = true;
-                vägg.StängIngångsDörr();
+                väggKontroll.Stäng();
             }
 
             if (VadRummetSkaGöra[VadRummetSkaGöra.Length - 1] == 2)
@@ -89,7 +83,7 @@ public class RumInteraktion : MonoBehaviour
                     plats = i;
                     byteMellanBlinkOchLjud = false;
 
-                    if (VadRummetSkaGöra.Length == VadRummetSkaGöra.Length || VadRummetSkaGöra[i] != VadRummetSkaGöra[i + 1]) 
+                    if (VadRummetSkaGöra.Length == VadRummetSkaGöra.Length || VadRummetSkaGöra[i] != VadRummetSkaGöra[i + 1])
                     {
                         byteMellanBlinkOchLjud = true;
                     }
@@ -137,7 +131,6 @@ public class RumInteraktion : MonoBehaviour
 
     void SpelaLjud(bool byter)
     {
-        ljudPå = false;
         if (AndraTimer <= Time.time)
         {
             Debug.Log("Ljud på");
@@ -156,26 +149,32 @@ public class RumInteraktion : MonoBehaviour
         }
         else
         {
+            ljudPå = false;
             AndraTimer--;
         }
     }
 
     void KlarMedRum()
     {
-        blinkPå = false;
-        lampa.StängAv();
+        //blinkPå = false;
+        //lampa.StängAv();
 
-        ljudPå = false;
-        ljudKäll.Stop();
-
+        //ljudPå = false;
+        //ljudKäll.Stop();
 
         ärIRummet = false;
+        Resultaten();
+
+
+        väggKontroll.Öppna(false);
+        megaHj.KameraFöljKaraktär();
+        megaHj.rum[rumNummer].GetComponentInChildren<KontrollerVägg>().Öppna(true);
+    }
+
+    void Resultaten()
+    {
         tid -= startTid;
         megaHj.SättIhopRumResultat(rummID, tid);
-
-        vägg.ÖppnaUtgången();
-        megaHj.KameraFöljKaraktär();
-        megaHj.rum[rumNummer].GetComponentInChildren<KontrollerVägg>().ÖppnaIngångsDörr();
     }
 
     int SlumpaVänta(int min, int max)
@@ -184,8 +183,4 @@ public class RumInteraktion : MonoBehaviour
         return vänta;
     }
 
-    void ÄrSpelarenIRum()
-    {
-
-    }
 }
