@@ -19,7 +19,6 @@ public class KontrollerVägg : MonoBehaviour
         animHöger = väggar.GetComponentInChildren<Animator>();
     }
 
-
     public void Öppna(bool vänsterDörr)
     {
         if (vänsterDörr == true)

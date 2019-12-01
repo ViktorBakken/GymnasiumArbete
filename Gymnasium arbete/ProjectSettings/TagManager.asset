@@ -12,6 +12,7 @@ TagManager:
   - "V\xE4gg"
   - "V\xE4ggV\xE4nster"
   - Anim
+  - UI
   layers:
   - Default
   - TransparentFX

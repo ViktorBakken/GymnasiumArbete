@@ -644,8 +644,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06956ee52a1b6fa41b8b6d18bb553e36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "pelarF\xE4rgText": Orange
   "pelarF\xE4rg": 1
-  "pelarF\xE4rg2": Orange
 --- !u!1 &2177957633129998920
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,8 +1033,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06956ee52a1b6fa41b8b6d18bb553e36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "pelarF\xE4rgText": "Bl\xE5"
   "pelarF\xE4rg": 0
-  "pelarF\xE4rg2": "Bl\xE5"
 --- !u!1 &2177957633920094080
 GameObject:
   m_ObjectHideFlags: 0
@@ -1419,8 +1419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06956ee52a1b6fa41b8b6d18bb553e36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "pelarF\xE4rgText": Gul
   "pelarF\xE4rg": 2
-  "pelarF\xE4rg2": Gul
 --- !u!1 &2177957634591465718
 GameObject:
   m_ObjectHideFlags: 0
@@ -1902,6 +1902,8 @@ MonoBehaviour:
   "v\xE4ntaLjud": 6.834
   rummID: Rum
   rumNummer: 0
+  "\xF6kningPo\xE4ng": 100
+  "avdragPo\xE4ng": 10
   spelareIRum: {fileID: 244784376}
   "ljudK\xE4ll": {fileID: 2177957634877634915}
   "blinkP\xE5": 0

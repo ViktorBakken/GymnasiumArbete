@@ -5,18 +5,20 @@ using UnityEngine.Animations;
 
 public class pelarController : MonoBehaviour
 {
-    public int pelarFärg; //blå == 0, svart == 1, röd == 2
-    public string pelarFärg2;
+    public string pelarFärgText;
 
-    private MegaHjärna MegaHj;
+    [SerializeField] private int pelarFärg; //blå == 0, svart == 1, röd == 2
+    private MegaHjärna megaHj;
     private RumInteraktion rumIn;
     private LampaLjus lampa;
     private Animator anim;
+    private uiInteraktioner ui;
 
     // Start is called before the first frame update
     void Start()
     {
-        MegaHj = GameObject.FindGameObjectWithTag("RummKontroller").GetComponent<MegaHjärna>(); // Koden skapar en link till MH(Mega Hjärna)
+        megaHj = GameObject.FindGameObjectWithTag("RummKontroller").GetComponent<MegaHjärna>(); // Koden skapar en link till MH(Mega Hjärna)
+        ui = GameObject.FindGameObjectWithTag("UI").GetComponent<uiInteraktioner>();
         rumIn = GetComponentInParent<RumInteraktion>();
         lampa = GetComponentInParent<LampaLjus>();
         anim = GetComponentInChildren<Animator>();
@@ -27,20 +29,41 @@ public class pelarController : MonoBehaviour
         if (collision.tag == "Player" && Input.GetKeyDown(KeyCode.Space)) // Om det som nuddar pelaren är spelare och om spelaren trycker på space
         {
             float tid = rumIn.tid -= rumIn.startTid;
-            MegaHj.knappTryck[pelarFärg]++; // När spelaren trycker space på pelaren spelas det in i, beroende på färg av pelare, den respektive int
-            MegaHj.knappOrdning.Add(pelarFärg2 + "; " + tid.ToString() + "  ");
+            megaHj.knappTryck[pelarFärg]++; // När spelaren trycker space på pelaren spelas det in i, beroende på färg av pelare, den respektive int
+            megaHj.knappOrdning.Add(pelarFärgText + "; " + tid.ToString() + "  ");
 
-            anim.SetBool(MegaHj.aniKnapp, true);
+            anim.SetBool(megaHj.aniKnapp, true);
 
-            if (rumIn.blinkPå == true && pelarFärg == 0)
+            if (rumIn.blinkPå == true && pelarFärg == 0 || rumIn.ljudPå == true && pelarFärg == 2)
             {
-                SlutaBlinka();
-            }
+                if (rumIn.blinkPå == true && pelarFärg == 0)
+                {
+                    SlutaBlinka();
 
-            if (rumIn.ljudPå == true && pelarFärg == 2)
-            {
-                SlutaSpelaLjud();
+                    ui.Poäng += rumIn.ökningPoäng;
+                }
+
+                if (rumIn.ljudPå == true && pelarFärg == 2)
+                {
+                    SlutaSpelaLjud();
+
+                    ui.Poäng += rumIn.ökningPoäng;
+                }
+                ui.PoppUpp(collision.transform, rumIn.ökningPoäng);
             }
+            else
+            {
+                SkaDraAvPoäng(collision);
+            }
+        }
+    }
+
+    void SkaDraAvPoäng(Collider2D collision)
+    {
+        if (rumIn.blinkPå == true && pelarFärg != 0 || rumIn.ljudPå == true && pelarFärg != 2 || rumIn.blinkPå == false && rumIn.ljudPå == false || rumIn.ärIRummet == false)
+        {
+            ui.Poäng -= rumIn.avdragPoäng;
+            ui.PoppUpp(collision.transform, rumIn.avdragPoäng);
         }
     }
 
@@ -50,6 +73,7 @@ public class pelarController : MonoBehaviour
         lampa.StängAv();
         rumIn.blinkPå = false;
     }
+
     void SlutaSpelaLjud()
     {
         rumIn.VadRummetSkaGöra[rumIn.plats] = 2;
@@ -62,7 +86,7 @@ public class pelarController : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            anim.SetBool(MegaHj.aniKnapp, false);
+            anim.SetBool(megaHj.aniKnapp, false);
         }
     }
 }

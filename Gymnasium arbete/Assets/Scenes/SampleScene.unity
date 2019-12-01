@@ -402,7 +402,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -499,7 +499,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &535553061
 GameObject:
@@ -621,8 +621,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06956ee52a1b6fa41b8b6d18bb553e36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "pelarF\xE4rgText": "Bl\xE5"
   "pelarF\xE4rg": 0
-  "pelarF\xE4rg2": "Bl\xE5"
 --- !u!50 &535553067
 Rigidbody2D:
   serializedVersion: 4
@@ -659,7 +659,7 @@ GameObject:
   - component: {fileID: 585617875}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -676,6 +676,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e9944fb5379d7844a498f8e5e95311d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "po\xE4ng": 0
+  "poppUpPo\xE4ng": {fileID: 2458319075104768595, guid: d6edc6e42bb0ff743b6852b914f4ad94,
+    type: 3}
 --- !u!114 &585617876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -749,7 +752,7 @@ RectTransform:
   m_Children:
   - {fileID: 693965266}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -847,7 +850,7 @@ GameObject:
   - component: {fileID: 693965268}
   - component: {fileID: 693965267}
   m_Layer: 5
-  m_Name: Points
+  m_Name: "Po\xE4ng"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -890,7 +893,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Points
+  m_text: "Po\xE4ng:"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1110,8 +1113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06956ee52a1b6fa41b8b6d18bb553e36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "pelarF\xE4rgText": Orange
   "pelarF\xE4rg": 1
-  "pelarF\xE4rg2": Orange
 --- !u!50 &724059418
 Rigidbody2D:
   serializedVersion: 4
@@ -1321,7 +1324,7 @@ Transform:
   - {fileID: 1502839801}
   - {fileID: 2177957634088926099}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &976223644
 MonoBehaviour:
@@ -1580,8 +1583,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06956ee52a1b6fa41b8b6d18bb553e36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "pelarF\xE4rgText": Gul
   "pelarF\xE4rg": 2
-  "pelarF\xE4rg2": Gul
 --- !u!50 &1131240721
 Rigidbody2D:
   serializedVersion: 4
@@ -2479,6 +2482,8 @@ MonoBehaviour:
   "v\xE4ntaLjud": 6.834
   rummID: Rum1
   rumNummer: 1
+  "\xF6kningPo\xE4ng": 100
+  "avdragPo\xE4ng": 10
   spelareIRum: {fileID: 0}
   "ljudK\xE4ll": {fileID: 1560802915}
   "blinkP\xE5": 0
@@ -2795,7 +2800,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1957478929
 GameObject:
@@ -2937,7 +2942,7 @@ Transform:
   m_LocalScale: {x: 0.75, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2017046376
 Animator:
@@ -3170,8 +3175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06956ee52a1b6fa41b8b6d18bb553e36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "pelarF\xE4rgText": 
   "pelarF\xE4rg": 0
-  "pelarF\xE4rg2": "Bl\xE5"
 --- !u!50 &2177957632975071705
 Rigidbody2D:
   serializedVersion: 4
@@ -3679,8 +3684,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06956ee52a1b6fa41b8b6d18bb553e36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "pelarF\xE4rgText": 
   "pelarF\xE4rg": 1
-  "pelarF\xE4rg2": Orange
 --- !u!33 &2177957633918642800
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3916,7 +3921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d9e31f46c626c40a718fa1e739790c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "VadRummetSkaG\xF6ra": 
+  "VadRummetSkaG\xF6ra": 0000000000000000010000000100000000000000
   min: 5
   max: 8
   blinkTid: 125
@@ -3924,6 +3929,8 @@ MonoBehaviour:
   "v\xE4ntaLjud": 6.834
   rummID: Rum4
   rumNummer: 4
+  "\xF6kningPo\xE4ng": 100
+  "avdragPo\xE4ng": 10
   spelareIRum: {fileID: 1066688010}
   "ljudK\xE4ll": {fileID: 2177957634088926097}
   "blinkP\xE5": 0
@@ -4154,8 +4161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06956ee52a1b6fa41b8b6d18bb553e36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "pelarF\xE4rgText": 
   "pelarF\xE4rg": 2
-  "pelarF\xE4rg2": Gul
 --- !u!50 &2177957634258424035
 Rigidbody2D:
   serializedVersion: 4

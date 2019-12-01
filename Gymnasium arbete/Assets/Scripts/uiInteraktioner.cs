@@ -1,18 +1,47 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class uiInteraktioner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private int poäng = 0;
+    public int Poäng
     {
-        
+        set
+        {
+            if (value > 0)
+            {
+                poäng = value;
+            }
+        }
+
+        get
+        {
+            return poäng;
+        }
+
     }
 
-    // Update is called once per frame
+    [SerializeField] private GameObject poppUpPoäng;
+    private TextMeshProUGUI text;
+
+
+    void Start()
+    {
+        text = GetComponentInChildren<TextMeshProUGUI>();
+    }
+
     void Update()
     {
-        
+        text.text = "Poäng: " + poäng.ToString();
+    }
+
+    public void PoppUpp(Transform position, int poäng)
+    {
+        GameObject effekt = Instantiate(poppUpPoäng, position);
+        effekt.GetComponentInChildren<TextMeshProUGUI>().text = poäng.ToString();
+        effekt.GetComponentInChildren<Animator>().Play(0);
+        Destroy(effekt, effekt.GetComponentInChildren<Animator>().GetCurrentAnimatorClipInfo(0).Length);
     }
 }
