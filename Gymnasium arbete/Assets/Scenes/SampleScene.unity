@@ -1364,6 +1364,11 @@ PrefabInstance:
       propertyPath: "VadRummetSkaG\xF6ra.Array.data[1]"
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2177957634877634914, guid: 3ee5ea179243200418b5babd9461de2f,
+        type: 3}
+      propertyPath: "v\xE4ntaLjud"
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ee5ea179243200418b5babd9461de2f, type: 3}
 --- !u!1 &1309700086
@@ -1531,6 +1536,16 @@ PrefabInstance:
         type: 3}
       propertyPath: rumNummer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2177957634877634914, guid: 3ee5ea179243200418b5babd9461de2f,
+        type: 3}
+      propertyPath: "VadRummetSkaG\xF6ra.Array.data[0]"
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2177957634877634914, guid: 3ee5ea179243200418b5babd9461de2f,
+        type: 3}
+      propertyPath: "v\xE4ntaLjud"
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ee5ea179243200418b5babd9461de2f, type: 3}
@@ -1791,13 +1806,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d9e31f46c626c40a718fa1e739790c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "VadRummetSkaG\xF6ra": 00000000
+  "VadRummetSkaG\xF6ra": 01000000
   min: 5
   max: 8
-  blinkTid: 125
+  blinkTid: 5
   plats: 0
-  "v\xE4ntaLjud": 8
-  tidMellanLjud: 10
+  "v\xE4ntaLjud": 6.834
   rummID: Rum1
   rumNummer: 1
   spelareIRum: {fileID: 0}

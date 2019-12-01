@@ -47,14 +47,9 @@ MonoBehaviour:
   "animV\xE4nstraD\xF6rr\xD6ppna": "V\xE4ggV\xE4nsterUpp"
   "animV\xE4nstraD\xF6rrSt\xE4ng": "V\xE4ggNer"
   "animH\xF6graD\xF6rr\xD6ppna": "V\xE4ggAnimation"
-  top: 1.05
-  nere: -2.91
-  speed: 1
   "v\xE4ggar": {fileID: 2177957634079362869}
   "animV\xE4nster": {fileID: 0}
   "animH\xF6ger": {fileID: 0}
-  "v\xE4nsterD\xF6rr": {fileID: 218210775230876493}
-  "h\xF6gerD\xF6rr": {fileID: 2177957634707122302}
 --- !u!1 &244784376
 GameObject:
   m_ObjectHideFlags: 0
@@ -1904,8 +1899,7 @@ MonoBehaviour:
   max: 8
   blinkTid: 125
   plats: 0
-  "v\xE4ntaLjud": 8
-  tidMellanLjud: 0
+  "v\xE4ntaLjud": 20
   rummID: Rum
   rumNummer: 0
   spelareIRum: {fileID: 244784376}
