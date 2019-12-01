@@ -1899,7 +1899,7 @@ MonoBehaviour:
   max: 8
   blinkTid: 125
   plats: 0
-  "v\xE4ntaLjud": 20
+  "v\xE4ntaLjud": 6.834
   rummID: Rum
   rumNummer: 0
   spelareIRum: {fileID: 244784376}

@@ -41,7 +41,7 @@ public class RumInteraktion : MonoBehaviour
         lampa = GetComponentInChildren<LampaLjus>();
         väggKontroll = GetComponentInChildren<KontrollerVägg>();
 
-        timer = 5;
+        timer = 5 + Time.time;
         lampa.StängAv();
     }
 
@@ -160,8 +160,8 @@ public class RumInteraktion : MonoBehaviour
         ljudKäll.Stop();
 
         ärIRummet = false;
+        tid = Time.time;
         Resultaten();
-
 
         väggKontroll.Öppna(false);
         megaHj.KameraFöljKaraktär();
@@ -170,6 +170,7 @@ public class RumInteraktion : MonoBehaviour
 
     void Resultaten()
     {
+        Debug.Log(tid + "\n" + startTid);
         tid -= startTid;
         megaHj.SättIhopRumResultat(rummID, tid);
     }
