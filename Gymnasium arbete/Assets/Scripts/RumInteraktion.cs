@@ -14,8 +14,6 @@ public class RumInteraktion : MonoBehaviour
     public float väntaLjud; //Tid som låter ljudet spela klart
     public string rummID; //Ett id för rummet, används när tiderna antecknas
     public int rumNummer;
-    public int ökningPoäng;
-    public int avdragPoäng;
     public Object spelareIRum;
 
     public AudioSource ljudKäll;

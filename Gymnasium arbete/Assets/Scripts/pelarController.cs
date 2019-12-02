@@ -40,16 +40,16 @@ public class pelarController : MonoBehaviour
                 {
                     SlutaBlinka();
 
-                    ui.Poäng += rumIn.ökningPoäng;
+                    ui.Poäng += megaHj.ökningPoäng;
                 }
 
                 if (rumIn.ljudPå == true && pelarFärg == 2)
                 {
                     SlutaSpelaLjud();
 
-                    ui.Poäng += rumIn.ökningPoäng;
+                    ui.Poäng += megaHj.ökningPoäng;
                 }
-                ui.PoppUpp(collision.transform, rumIn.ökningPoäng);
+                ui.PoppUpp(collision.transform, megaHj.ökningPoäng);
             }
             else
             {
@@ -62,8 +62,8 @@ public class pelarController : MonoBehaviour
     {
         if (rumIn.blinkPå == true && pelarFärg != 0 || rumIn.ljudPå == true && pelarFärg != 2 || rumIn.blinkPå == false && rumIn.ljudPå == false || rumIn.ärIRummet == false)
         {
-            ui.Poäng -= rumIn.avdragPoäng;
-            ui.PoppUpp(collision.transform, rumIn.avdragPoäng);
+            ui.Poäng += megaHj.avdragPoäng;
+            ui.PoppUpp(collision.transform, megaHj.avdragPoäng);
         }
     }
 
