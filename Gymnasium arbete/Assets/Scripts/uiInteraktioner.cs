@@ -39,9 +39,13 @@ public class uiInteraktioner : MonoBehaviour
 
     public void PoppUpp(Transform position, int poäng)
     {
-        GameObject effekt = Instantiate(poppUpPoäng, position);
+        Vector2 globalPosition = Camera.main.WorldToScreenPoint(position.position);
+        GameObject effekt = Instantiate(poppUpPoäng);
         effekt.GetComponentInChildren<TextMeshProUGUI>().text = poäng.ToString();
+        effekt.transform.SetParent(transform, false);
+        effekt.transform.position = globalPosition;
         effekt.GetComponentInChildren<Animator>().Play(0);
+
         Destroy(effekt, effekt.GetComponentInChildren<Animator>().GetCurrentAnimatorClipInfo(0).Length);
     }
 }
