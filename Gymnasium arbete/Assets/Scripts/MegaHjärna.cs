@@ -21,6 +21,7 @@ public class MegaHjärna : MonoBehaviour
     void Start()
     {
         rum = GameObject.FindGameObjectsWithTag("Rum");
+        rum[0].GetComponent<RumInteraktion>().förstaRummet = true;
         rum[0].GetComponent<RumInteraktion>().ärIRummet = true;
     }
 

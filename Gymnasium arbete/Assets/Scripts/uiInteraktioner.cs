@@ -5,7 +5,6 @@ using TMPro;
 
 public class uiInteraktioner : MonoBehaviour
 {
-    [SerializeField] private int poäng = 0;
     public int Poäng
     {
         set
@@ -23,7 +22,14 @@ public class uiInteraktioner : MonoBehaviour
 
     }
 
+    [SerializeField] private int poäng = 0;
+    [SerializeField] private float extraHöjd;
+    [SerializeField] private float sidaMin;
+    [SerializeField] private float sidaMax;
     [SerializeField] private GameObject poppUpPoäng;
+    [SerializeField] private GameObject pil;
+    [SerializeField] private GameObject AvslutningsSkärm;
+
     private TextMeshProUGUI text;
 
 
@@ -39,18 +45,34 @@ public class uiInteraktioner : MonoBehaviour
 
     public void PoppUpp(Transform position, int poäng)
     {
-<<<<<<< HEAD
-        Vector2 globalPosition = Camera.main.WorldToScreenPoint(position.position);
+        Vector2 globalPosition = Camera.main.WorldToScreenPoint(position.position + new Vector3(Slump(sidaMin, sidaMax + 1), Slump(1, extraHöjd + 1), 0));
         GameObject effekt = Instantiate(poppUpPoäng);
-=======
-        Debug.Log("Whack");
-        GameObject effekt = Instantiate(poppUpPoäng, transform);
->>>>>>> 3c0fc3b448905ac7d20768b0b66880929e1fc964
+
         effekt.GetComponentInChildren<TextMeshProUGUI>().text = poäng.ToString();
         effekt.transform.SetParent(transform, false);
         effekt.transform.position = globalPosition;
         effekt.GetComponentInChildren<Animator>().Play(0);
 
         Destroy(effekt, effekt.GetComponentInChildren<Animator>().GetCurrentAnimatorClipInfo(0).Length);
+    }
+
+    public void Pil(Transform position)
+    {
+        Vector2 globalPosition = Camera.main.WorldToScreenPoint(position.position);
+        GameObject effekt = Instantiate(pil);
+        effekt.transform.SetParent(transform, false);
+        effekt.GetComponentInChildren<Animator>().Play(0);
+    }
+
+    public void TändAvslutningsSkärm()
+    {
+        AvslutningsSkärm.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    float Slump(float min, float max)
+    {
+        float värde = Random.Range(min, max);
+        return värde;
     }
 }

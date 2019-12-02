@@ -14,6 +14,8 @@ public class pelarController : MonoBehaviour
     private Animator anim;
     private uiInteraktioner ui;
 
+    private bool pådragPoäng =false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +32,7 @@ public class pelarController : MonoBehaviour
         {
             float tid = rumIn.tid -= rumIn.startTid;
             megaHj.knappTryck[pelarFärg]++; // När spelaren trycker space på pelaren spelas det in i, beroende på färg av pelare, den respektive int
-            megaHj.knappOrdning.Add(pelarFärgText + "; " + tid.ToString() + "  ");
+            megaHj.knappOrdning.Add(pelarFärgText + "; " + tid.ToString() + " ");
 
             anim.SetBool(megaHj.aniKnapp, true);
 
@@ -38,17 +40,16 @@ public class pelarController : MonoBehaviour
             {
                 if (rumIn.blinkPå == true && pelarFärg == 0)
                 {
-                    SlutaBlinka();
-
-                    ui.Poäng += megaHj.ökningPoäng;
+                    rumIn.VadRummetSkaGöra[rumIn.plats] = 2;
+                    rumIn.SlutaBlinka();
                 }
 
                 if (rumIn.ljudPå == true && pelarFärg == 2)
                 {
-                    SlutaSpelaLjud();
-
-                    ui.Poäng += megaHj.ökningPoäng;
+                    rumIn.VadRummetSkaGöra[rumIn.plats] = 2;
+                    rumIn.SlutaSpelaLjud();
                 }
+                ui.Poäng += megaHj.ökningPoäng;
                 ui.PoppUpp(collision.transform, megaHj.ökningPoäng);
             }
             else
@@ -65,21 +66,6 @@ public class pelarController : MonoBehaviour
             ui.Poäng += megaHj.avdragPoäng;
             ui.PoppUpp(collision.transform, megaHj.avdragPoäng);
         }
-    }
-
-    void SlutaBlinka()
-    {
-        rumIn.VadRummetSkaGöra[rumIn.plats] = 2;
-        lampa.StängAv();
-        rumIn.blinkPå = false;
-    }
-
-    void SlutaSpelaLjud()
-    {
-        rumIn.VadRummetSkaGöra[rumIn.plats] = 2;
-        rumIn.ljudKäll.Stop();
-        rumIn.ljudPå = false;
-        Debug.Log("Tyst!!!!!!");
     }
 
     void Update()

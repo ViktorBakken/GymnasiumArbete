@@ -14,13 +14,14 @@ public class RumInteraktion : MonoBehaviour
     public float väntaLjud; //Tid som låter ljudet spela klart
     public string rummID; //Ett id för rummet, används när tiderna antecknas
     public int rumNummer;
-    public Object spelareIRum;
+    public GameObject spelareIRum;
 
     public AudioSource ljudKäll;
 
     public bool blinkPå = false;
     public bool ljudPå = false;
     public bool ärIRummet = false;
+    public bool förstaRummet = false;
 
     public float tid;
     public float startTid;
@@ -33,15 +34,16 @@ public class RumInteraktion : MonoBehaviour
 
     private LampaLjus lampa;
     private MegaHjärna megaHj;
-    public KontrollerVägg väggKontroll;
+    private KontrollerVägg väggKontroll;
+    private uiInteraktioner ui;
 
     void Start()
     {
         megaHj = GameObject.FindGameObjectWithTag("RummKontroller").GetComponent<MegaHjärna>();
+        ui = GameObject.FindGameObjectWithTag("UI").GetComponent<uiInteraktioner>();
         lampa = GetComponentInChildren<LampaLjus>();
         väggKontroll = GetComponentInChildren<KontrollerVägg>();
 
-        timer = 5 + Time.time;
         lampa.StängAv();
     }
 
@@ -52,8 +54,12 @@ public class RumInteraktion : MonoBehaviour
             if (harStartTid == false)
             {
                 startTid = Time.time;
+                timer = 5 + Time.time;
                 harStartTid = true;
-                väggKontroll.Stäng();
+                if (förstaRummet == false)
+                {
+                    väggKontroll.Stäng();
+                }
             }
 
             if (VadRummetSkaGöra[VadRummetSkaGöra.Length - 1] == 2)
@@ -113,11 +119,6 @@ public class RumInteraktion : MonoBehaviour
         if (AndraTimer <= 0)
         {
             SlutaBlinka();
-
-            blink = true;
-
-            UpdateraTimern(2, true);
-            UpdateraTimern(1, true);
         }
         else
         {
@@ -137,18 +138,27 @@ public class RumInteraktion : MonoBehaviour
 
         if (AndraTimer <= Time.time)
         {
-            Debug.Log("feck");
-            UpdateraTimern(1, false);
-            ljudPå = false;
-            ljudSpelas = true;
+            SlutaSpelaLjud();
         }
     }
 
-    void SlutaBlinka()
+    public void SlutaBlinka()
     {
         Debug.Log("ny tid");
         lampa.StängAv();
         blinkPå = false;
+        blink = true;
+
+        UpdateraTimern(2, true);
+        UpdateraTimern(1, true);
+    }
+
+    public void SlutaSpelaLjud()
+    {
+        ljudKäll.Stop();
+        UpdateraTimern(1, false);
+        ljudPå = false;
+        ljudSpelas = true;
     }
 
     void KlarMedRum()
@@ -163,9 +173,16 @@ public class RumInteraktion : MonoBehaviour
         tid = Time.time;
         Resultaten();
 
-        väggKontroll.Öppna(false);
-        megaHj.KameraFöljKaraktär();
-        megaHj.rum[rumNummer].GetComponentInChildren<KontrollerVägg>().Öppna(true);
+        if (rumNummer != megaHj.rum.Length)
+        {
+            väggKontroll.Öppna(false);
+            megaHj.KameraFöljKaraktär();
+            megaHj.rum[rumNummer].GetComponentInChildren<KontrollerVägg>().Öppna(true);
+        }
+        else
+        {
+            ui.TändAvslutningsSkärm();
+        }
     }
 
     void Resultaten()
