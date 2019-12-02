@@ -13,6 +13,8 @@ public class MegaHjärna : MonoBehaviour
     public GameObject kamera;
     public string aniKnapp;
     public string aniVägg;
+    public int ökningPoäng;
+    public int avdragPoäng;
 
     private Vector3 newPosition;
 
