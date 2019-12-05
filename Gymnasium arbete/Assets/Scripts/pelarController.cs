@@ -15,7 +15,6 @@ public class pelarController : MonoBehaviour
     private uiInteraktioner ui;
 
     private bool pådragPoäng =false;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -40,13 +39,13 @@ public class pelarController : MonoBehaviour
             {
                 if (rumIn.blinkPå == true && pelarFärg == 0)
                 {
-                    rumIn.VadRummetSkaGöra[rumIn.plats] = 2;
+                    rumIn.VadRummetSkaGöra[rumIn.plats] = rumIn.utfört;
                     rumIn.SlutaBlinka();
                 }
 
                 if (rumIn.ljudPå == true && pelarFärg == 2)
                 {
-                    rumIn.VadRummetSkaGöra[rumIn.plats] = 2;
+                    rumIn.VadRummetSkaGöra[rumIn.plats] = rumIn.utfört;
                     rumIn.SlutaSpelaLjud();
                 }
                 ui.Poäng += megaHj.ökningPoäng;
@@ -61,7 +60,7 @@ public class pelarController : MonoBehaviour
 
     void SkaDraAvPoäng(Collider2D collision)
     {
-        if (rumIn.blinkPå == true && pelarFärg != 0 || rumIn.ljudPå == true && pelarFärg != 2 || rumIn.blinkPå == false && rumIn.ljudPå == false || rumIn.ärIRummet == false)
+        if (rumIn.blinkPå == true && pelarFärg != 0 || rumIn.ljudPå == true && pelarFärg != rumIn.utfört || rumIn.blinkPå == false && rumIn.ljudPå == false || rumIn.ärIRummet == false)
         {
             ui.Poäng += megaHj.avdragPoäng;
             ui.PoppUpp(collision.transform, megaHj.avdragPoäng);

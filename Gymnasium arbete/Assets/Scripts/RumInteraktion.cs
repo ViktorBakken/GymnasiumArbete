@@ -6,7 +6,8 @@ using UnityEngine.Animations;
 
 public class RumInteraktion : MonoBehaviour
 {
-    public int[] VadRummetSkaGöra; //0 == blinka, 1 == ljud, 2 == utfört.
+    public int[] VadRummetSkaGöra; //0 == blinka, 1 == ljud, 2 == inget blink, 3 == inget ljud, 4 == både ljus och blink, 5 == utfört.
+    public int utfört = 5; // 5
     public int min; //Minimum tiden för timern
     public int max; //Maximum tiden för  timern
     public int blinkTid; //tiden lampan är på
@@ -31,6 +32,9 @@ public class RumInteraktion : MonoBehaviour
     private bool harStartTid = false;
     private bool ljudSpelas = true;
     private bool blink = true;
+    private bool ingenBlink = true;
+    private bool blinkOchLjud = true;
+    private bool ingetLjud = true;
 
     private LampaLjus lampa;
     private MegaHjärna megaHj;
@@ -62,7 +66,7 @@ public class RumInteraktion : MonoBehaviour
                 }
             }
 
-            if (VadRummetSkaGöra[VadRummetSkaGöra.Length - 1] == 2)
+            if (VadRummetSkaGöra[VadRummetSkaGöra.Length - 1] == utfört)
             {
                 KlarMedRum();
             }
@@ -82,7 +86,7 @@ public class RumInteraktion : MonoBehaviour
         {
             for (int i = 0; i < VadRummetSkaGöra.Length; i++)
             {
-                if (VadRummetSkaGöra[i] != 2)
+                if (VadRummetSkaGöra[i] != utfört)
                 {
                     plats = i;
 
@@ -94,6 +98,21 @@ public class RumInteraktion : MonoBehaviour
                     else if (VadRummetSkaGöra[i] == 1)
                     {
                         SpelaLjud();
+                        break;
+                    }
+                    else if (VadRummetSkaGöra[i] == 2)
+                    {
+                        IngetBlink();
+                        break;
+                    }
+                    else if (VadRummetSkaGöra[i] == 3)
+                    {
+                        IngetLjud();
+                        break;
+                    }
+                    else if (VadRummetSkaGöra[i] == 4)
+                    {
+                        BådeBlinkOchLjud();
                         break;
                     }
                 }
@@ -142,6 +161,58 @@ public class RumInteraktion : MonoBehaviour
         }
     }
 
+    void IngetBlink()
+    {
+        if (ingenBlink == true)
+        {
+            blinkPå = true;
+            ingenBlink = false;
+            UpdateraTimern(2, true);
+        }
+
+        if (AndraTimer <= Time.time)
+        {
+            UpdateraTimern(1, false);
+            blinkPå = false;
+            ingenBlink = true;
+        }
+    }
+
+    void IngetLjud()
+    {
+        if (ingetLjud == true)
+        {
+            ljudPå = true;
+            ingetLjud = false;
+            UpdateraTimern(2, false);
+        }
+
+        if (AndraTimer <= Time.time)
+        {
+            UpdateraTimern(1, false);
+            ljudPå = false;
+            ingetLjud = true;
+        }
+    }
+
+    void BådeBlinkOchLjud()
+    {
+        if (blinkOchLjud == true)
+        {
+            ljudKäll.Play();
+            lampa.SättPå();
+            blinkPå = true;
+            ljudPå = true;
+            blinkOchLjud = false;
+            UpdateraTimern(2, false);
+        }
+
+        if (AndraTimer <= Time.time)
+        {
+            SlutaBlinkaOchSpelaLjud();
+        }
+    }
+
     public void SlutaBlinka()
     {
         Debug.Log("ny tid");
@@ -159,6 +230,18 @@ public class RumInteraktion : MonoBehaviour
         UpdateraTimern(1, false);
         ljudPå = false;
         ljudSpelas = true;
+    }
+
+    public void SlutaBlinkaOchSpelaLjud()
+    {
+        ljudKäll.Stop();
+        lampa.StängAv();
+        blinkPå = false;
+        ljudPå = false;
+        blinkOchLjud = true;
+
+        UpdateraTimern(2, false);
+        UpdateraTimern(1, true);
     }
 
     void KlarMedRum()
