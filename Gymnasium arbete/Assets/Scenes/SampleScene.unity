@@ -2270,12 +2270,17 @@ PrefabInstance:
     - target: {fileID: 2177957634877634914, guid: 3ee5ea179243200418b5babd9461de2f,
         type: 3}
       propertyPath: "VadRummetSkaG\xF6ra.Array.data[0]"
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2177957634877634914, guid: 3ee5ea179243200418b5babd9461de2f,
         type: 3}
       propertyPath: "VadRummetSkaG\xF6ra.Array.data[2]"
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2177957634877634914, guid: 3ee5ea179243200418b5babd9461de2f,
+        type: 3}
+      propertyPath: blinkTid
+      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ee5ea179243200418b5babd9461de2f, type: 3}
@@ -2455,6 +2460,11 @@ PrefabInstance:
         type: 3}
       propertyPath: "v\xE4ntaLjud"
       value: 6.834
+      objectReference: {fileID: 0}
+    - target: {fileID: 2177957634877634914, guid: 3ee5ea179243200418b5babd9461de2f,
+        type: 3}
+      propertyPath: blinkTid
+      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ee5ea179243200418b5babd9461de2f, type: 3}
@@ -2741,7 +2751,7 @@ MonoBehaviour:
   "utf\xF6rt": 0
   min: 5
   max: 8
-  blinkTid: 125
+  blinkTid: 150
   plats: 0
   "v\xE4ntaLjud": 6.834
   rummID: Rum1
@@ -2751,7 +2761,7 @@ MonoBehaviour:
   "blinkP\xE5": 0
   "ljudP\xE5": 0
   "\xE4rIRummet": 0
-  "f\xF6rstaRummet": 0
+  "f\xF6rstaRummet": 1
   tid: 0
   startTid: 0
 --- !u!82 &1560802915
@@ -4195,7 +4205,7 @@ MonoBehaviour:
   "utf\xF6rt": 0
   min: 5
   max: 8
-  blinkTid: 125
+  blinkTid: 150
   plats: 0
   "v\xE4ntaLjud": 6.834
   rummID: Rum4

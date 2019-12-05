@@ -7,7 +7,7 @@ using UnityEngine.Animations;
 public class RumInteraktion : MonoBehaviour
 {
     public int[] VadRummetSkaGöra; //0 == blinka, 1 == ljud, 2 == inget blink, 3 == inget ljud, 4 == både ljus och blink, 5 == utfört.
-    public int utfört = 5; // 5
+    public int utfört = 4; // 5
     public int min; //Minimum tiden för timern
     public int max; //Maximum tiden för  timern
     public int blinkTid; //tiden lampan är på
@@ -32,9 +32,7 @@ public class RumInteraktion : MonoBehaviour
     private bool harStartTid = false;
     private bool ljudSpelas = true;
     private bool blink = true;
-    private bool ingenBlink = true;
     private bool blinkOchLjud = true;
-    private bool ingetLjud = true;
 
     private LampaLjus lampa;
     private MegaHjärna megaHj;
@@ -47,7 +45,6 @@ public class RumInteraktion : MonoBehaviour
         ui = GameObject.FindGameObjectWithTag("UI").GetComponent<uiInteraktioner>();
         lampa = GetComponentInChildren<LampaLjus>();
         väggKontroll = GetComponentInChildren<KontrollerVägg>();
-
         lampa.StängAv();
     }
 
@@ -58,11 +55,11 @@ public class RumInteraktion : MonoBehaviour
             if (harStartTid == false)
             {
                 startTid = Time.time;
-                timer = 5 + Time.time;
                 harStartTid = true;
                 if (förstaRummet == false)
                 {
                     väggKontroll.Stäng();
+                    timer = 5 + Time.time;
                 }
             }
 
@@ -76,7 +73,6 @@ public class RumInteraktion : MonoBehaviour
 
                 ÄrIRummet();
             }
-
         }
     }
 
@@ -110,11 +106,11 @@ public class RumInteraktion : MonoBehaviour
                         IngetLjud();
                         break;
                     }
-                    else if (VadRummetSkaGöra[i] == 4)
-                    {
-                        BådeBlinkOchLjud();
-                        break;
-                    }
+                    //else if (VadRummetSkaGöra[i] == 4)
+                    //{
+                    //    BådeBlinkOchLjud();
+                    //    break;
+                    //}
                 }
             }
         }
@@ -163,36 +159,12 @@ public class RumInteraktion : MonoBehaviour
 
     void IngetBlink()
     {
-        if (ingenBlink == true)
-        {
-            blinkPå = true;
-            ingenBlink = false;
-            UpdateraTimern(2, true);
-        }
-
-        if (AndraTimer <= Time.time)
-        {
-            UpdateraTimern(1, false);
-            blinkPå = false;
-            ingenBlink = true;
-        }
+        blinkPå = true;
     }
 
     void IngetLjud()
     {
-        if (ingetLjud == true)
-        {
-            ljudPå = true;
-            ingetLjud = false;
-            UpdateraTimern(2, false);
-        }
-
-        if (AndraTimer <= Time.time)
-        {
-            UpdateraTimern(1, false);
-            ljudPå = false;
-            ingetLjud = true;
-        }
+        ljudPå = true;
     }
 
     void BådeBlinkOchLjud()
@@ -210,6 +182,10 @@ public class RumInteraktion : MonoBehaviour
         if (AndraTimer <= Time.time)
         {
             SlutaBlinkaOchSpelaLjud();
+        }
+        else
+        {
+            AndraTimer--;
         }
     }
 
@@ -270,6 +246,7 @@ public class RumInteraktion : MonoBehaviour
 
     void Resultaten()
     {
+        Debug.Log("feck");
         tid -= startTid;
         megaHj.SättIhopRumResultat(rummID, tid);
     }
