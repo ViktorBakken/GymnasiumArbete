@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 58031217}
   m_Layer: 0
   m_Name: Animation
-  m_TagString: Untagged
+  m_TagString: Anim
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,7 +82,7 @@ Transform:
   m_LocalScale: {x: 0.05, y: 3.9494488, z: 1}
   m_Children: []
   m_Father: {fileID: 2177957634079362870}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &244784381
 MeshFilter:
@@ -393,7 +393,7 @@ GameObject:
   - component: {fileID: 4483124582509240057}
   m_Layer: 0
   m_Name: "D\xF6rr (v\xE4nster)"
-  m_TagString: Untagged
+  m_TagString: "V\xE4ggV\xE4nster"
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -766,7 +766,7 @@ GameObject:
   - component: {fileID: 2177957633589187003}
   m_Layer: 0
   m_Name: Lampa
-  m_TagString: Untagged
+  m_TagString: Lampa
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1175,8 +1175,8 @@ Transform:
   - {fileID: 3610478480579529020}
   - {fileID: 344483603}
   - {fileID: 2072022575}
-  - {fileID: 2177957634707122303}
   - {fileID: 244784377}
+  - {fileID: 2177957634707122303}
   m_Father: {fileID: 2177957634877634913}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1639,7 +1639,7 @@ GameObject:
   - component: {fileID: 1251821519}
   m_Layer: 0
   m_Name: "D\xF6rr (h\xF6ger)"
-  m_TagString: Untagged
+  m_TagString: "V\xE4gg"
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1653,10 +1653,10 @@ Transform:
   m_GameObject: {fileID: 2177957634707122302}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 10.084999, y: -2.91, z: 0}
-  m_LocalScale: {x: 3.9094868, y: 1.1650023, z: 1}
+  m_LocalScale: {x: 3.9094832, y: 1.1650014, z: 1}
   m_Children: []
   m_Father: {fileID: 2177957634079362870}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!33 &2177957634707122306
 MeshFilter:
@@ -1902,14 +1902,16 @@ MonoBehaviour:
   "v\xE4ntaLjud": 6.834
   rummID: Rum
   rumNummer: 0
+  "\xF6kningPo\xE4ng": 100
+  "avdragPo\xE4ng": 10
   spelareIRum: {fileID: 244784376}
   "ljudK\xE4ll": {fileID: 2177957634877634915}
   "blinkP\xE5": 0
   "ljudP\xE5": 0
   "\xE4rIRummet": 0
-  "f\xF6rstaRummet": 0
   tid: 0
   startTid: 0
+  "v\xE4ggKontroll": {fileID: 0}
 --- !u!82 &2177957634877634915
 AudioSource:
   m_ObjectHideFlags: 0
