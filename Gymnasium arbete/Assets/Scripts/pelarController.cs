@@ -14,8 +14,6 @@ public class pelarController : MonoBehaviour
     private Animator anim;
     private uiInteraktioner ui;
 
-    private bool pådragPoäng =false;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -37,19 +35,23 @@ public class pelarController : MonoBehaviour
 
             anim.SetBool(megaHj.aniKnapp, true);
 
-            if (rumIn.blinkPå == true && pelarFärg == 0 || rumIn.ljudPå == true && pelarFärg == 2)
+            if (rumIn.blinkPå == true && pelarFärg == 0 || rumIn.blinkLjud == true && pelarFärg == 1 || rumIn.ljudPå == true && pelarFärg == 2)
             {
                 if (rumIn.blinkPå == true && pelarFärg == 0)
                 {
-                    rumIn.VadRummetSkaGöra[rumIn.plats] = 2;
                     rumIn.SlutaBlinka();
+                }
+
+                if (rumIn.blinkLjud == true && pelarFärg == 1)
+                {
+                    rumIn.SlutaBlinkaOchSpelaLjud();
                 }
 
                 if (rumIn.ljudPå == true && pelarFärg == 2)
                 {
-                    rumIn.VadRummetSkaGöra[rumIn.plats] = 2;
                     rumIn.SlutaSpelaLjud();
                 }
+                rumIn.VadRummetSkaGöra[rumIn.plats] = rumIn.utfört;
                 ui.Poäng += megaHj.ökningPoäng;
                 ui.PoppUpp(collision.transform, megaHj.ökningPoäng);
             }

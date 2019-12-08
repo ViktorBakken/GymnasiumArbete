@@ -7,11 +7,13 @@ using UnityEngine.Animations;
 public class RumInteraktion : MonoBehaviour
 {
     public int[] VadRummetSkaGöra; //0 == blinka, 1 == ljud, 2 == utfört.
+    public int utfört = 4;
     public int min; //Minimum tiden för timern
     public int max; //Maximum tiden för  timern
-    public int blinkTid; //tiden lampan är på
     public int plats; //platsen i VadRummetSkaGöra
+    public int blinkTid; //tiden lampan är på
     public float väntaLjud; //Tid som låter ljudet spela klart
+    public int blinkLjudTid;
     public string rummID; //Ett id för rummet, används när tiderna antecknas
     public int rumNummer;
     public GameObject spelareIRum;
@@ -20,6 +22,7 @@ public class RumInteraktion : MonoBehaviour
 
     public bool blinkPå = false;
     public bool ljudPå = false;
+    public bool blinkLjud = false;
     public bool ärIRummet = false;
     public bool förstaRummet = false;
 
@@ -31,6 +34,7 @@ public class RumInteraktion : MonoBehaviour
     private bool harStartTid = false;
     private bool ljudSpelas = true;
     private bool blink = true;
+    private bool blinkOchLjud = true;
 
     private LampaLjus lampa;
     private MegaHjärna megaHj;
@@ -54,17 +58,20 @@ public class RumInteraktion : MonoBehaviour
             if (harStartTid == false)
             {
                 startTid = Time.time;
-                timer = 5 + Time.time;
-                
 
                 harStartTid = true;
                 if (förstaRummet == false)
                 {
                     väggKontroll.Stäng();
+                    timer = 5 + Time.time;
+                }
+                else
+                {
+                    timer = 0;
                 }
             }
 
-            if (VadRummetSkaGöra[VadRummetSkaGöra.Length - 1] == 2)
+            if (VadRummetSkaGöra[VadRummetSkaGöra.Length - 1] == utfört)
             {
                 KlarMedRum();
             }
@@ -84,20 +91,26 @@ public class RumInteraktion : MonoBehaviour
         {
             for (int i = 0; i < VadRummetSkaGöra.Length; i++)
             {
-                if (VadRummetSkaGöra[i] != 2)
-                {
-                    plats = i;
+                plats = i;
 
-                    if (VadRummetSkaGöra[i] == 0)
-                    {
-                        Blinka();
-                        break;
-                    }
-                    else if (VadRummetSkaGöra[i] == 1)
-                    {
-                        SpelaLjud();
-                        break;
-                    }
+                if (VadRummetSkaGöra[i] == 0)
+                {
+                    Blinka();
+                    break;
+                }
+                else if (VadRummetSkaGöra[i] == 1)
+                {
+                    SpelaLjud();
+                    break;
+                }
+                else if (VadRummetSkaGöra[i] == 2)
+                {
+                    IngetBlink();
+                    break;
+                }
+                else if (VadRummetSkaGöra[i] == 3)
+                {
+                    BådeBlinkOchLjud();
                 }
             }
         }
@@ -128,6 +141,12 @@ public class RumInteraktion : MonoBehaviour
         }
     }
 
+    void IngetBlink()
+    {
+        blinkPå = true;
+        UpdateraTimern(1, false);
+    }
+
     void SpelaLjud()
     {
         if (ljudSpelas == true)
@@ -141,6 +160,27 @@ public class RumInteraktion : MonoBehaviour
         if (AndraTimer <= Time.time)
         {
             SlutaSpelaLjud();
+        }
+    }
+
+    void BådeBlinkOchLjud()
+    {
+        if (blinkOchLjud == true)
+        {
+            ljudKäll.Play();
+            lampa.SättPå();
+            blinkLjud = true;
+            blinkOchLjud = false;
+            UpdateraTimern(3, false);
+        }
+
+        if (AndraTimer <= Time.time)
+        {
+            SlutaBlinkaOchSpelaLjud();
+        }
+        else
+        {
+            AndraTimer--;
         }
     }
 
@@ -163,8 +203,19 @@ public class RumInteraktion : MonoBehaviour
         ljudSpelas = true;
     }
 
+    public void SlutaBlinkaOchSpelaLjud()
+    {
+        ljudKäll.Stop();
+        lampa.StängAv();
+        blinkLjud = false;
+        blinkOchLjud = true;
+
+        UpdateraTimern(1, true);
+    }
+
     void KlarMedRum()
     {
+        Debug.Log("beep");
         blinkPå = false;
         lampa.StängAv();
 
@@ -209,6 +260,10 @@ public class RumInteraktion : MonoBehaviour
             AndraTimer = väntaLjud + Time.time;
         }
 
+        if (vilkenTimer == 3)
+        {
+            AndraTimer = blinkLjudTid + Time.time;
+        }
     }
 
     int SlumpaVänta(int min, int max)

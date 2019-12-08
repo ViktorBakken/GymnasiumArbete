@@ -1910,17 +1910,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "VadRummetSkaG\xF6ra": 
+  "utf\xF6rt": 3
   min: 5
   max: 8
-  blinkTid: 250
   plats: 0
+  blinkTid: 250
   "v\xE4ntaLjud": 6.834
+  blinkLjudTid: 500
   rummID: Rum
   rumNummer: 0
   spelareIRum: {fileID: 244784376}
   "ljudK\xE4ll": {fileID: 2177957634877634915}
   "blinkP\xE5": 0
   "ljudP\xE5": 0
+  blinkLjud: 0
   "\xE4rIRummet": 0
   "f\xF6rstaRummet": 0
   tid: 0

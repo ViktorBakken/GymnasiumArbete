@@ -27,7 +27,6 @@ public class uiInteraktioner : MonoBehaviour
     [SerializeField] private float sidaMin;
     [SerializeField] private float sidaMax;
     [SerializeField] private GameObject poppUpPoäng;
-    [SerializeField] private GameObject pil;
     [SerializeField] private GameObject AvslutningsSkärm;
 
     private TextMeshProUGUI text;
@@ -54,14 +53,6 @@ public class uiInteraktioner : MonoBehaviour
         effekt.GetComponentInChildren<Animator>().Play(0);
 
         Destroy(effekt, effekt.GetComponentInChildren<Animator>().GetCurrentAnimatorClipInfo(0).Length);
-    }
-
-    public void Pil(Transform position)
-    {
-        Vector2 globalPosition = Camera.main.WorldToScreenPoint(position.position);
-        GameObject effekt = Instantiate(pil);
-        effekt.transform.SetParent(transform, false);
-        effekt.GetComponentInChildren<Animator>().Play(0);
     }
 
     public void TändAvslutningsSkärm()
