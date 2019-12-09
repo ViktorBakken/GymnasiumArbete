@@ -5465,7 +5465,7 @@ PrefabInstance:
     - target: {fileID: 2177957634877634914, guid: 3ee5ea179243200418b5babd9461de2f,
         type: 3}
       propertyPath: "VadRummetSkaG\xF6ra.Array.data[0]"
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2177957634877634914, guid: 3ee5ea179243200418b5babd9461de2f,
         type: 3}
@@ -9025,7 +9025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d9e31f46c626c40a718fa1e739790c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "VadRummetSkaG\xF6ra": 00000000
+  "VadRummetSkaG\xF6ra": 03000000
   "utf\xF6rt": 4
   min: 5
   max: 8
