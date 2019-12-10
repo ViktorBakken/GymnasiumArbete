@@ -1910,11 +1910,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "VadRummetSkaG\xF6ra": 
-  "utf\xF6rt": 3
-  min: 5
-  max: 8
+  "utf\xF6rt": 4
+  min: 3
+  max: 5
   plats: 0
-  blinkTid: 250
+  blinkTid: 300
   "v\xE4ntaLjud": 6.834
   blinkLjudTid: 500
   rummID: Rum
